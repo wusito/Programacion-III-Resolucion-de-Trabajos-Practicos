@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción</title>
+</head>
+
+<body>
+    <h1>Inscripción a Actividad Deportiva</h1>
+
+    <form action="pagina3.html" method="POST">
+
+
+
+        <!-- SECCIÓN 1: INFORMACIÓN DE LA ACTIVIDAD -->
+        <h2>Información y Selección de Actividad</h2>
+
+        <fieldset>
+
+            <label for="actividad">Seleccione la Actividad:</label> <br>
+
+            <select id="actividad" name="actividad">
+                <option value="futbol">Fútbol — Cancha Principal, Campus Universitario (Lunes y Miércoles de 18:00 a 20:00)</option>
+                <option value="basquet">Básquet — Pabellón de Básquet, Campus Universitario (Martes y Jueves de 18:00 a 20:00)</option>
+                <option value="voley">Vóley — Pabellón de Vóley, Campus Universitario (Miércoles y Viernes de 18:00 a 20:00)</option>
+                <option value="atletismo">Atletismo — Circuito de Atletismo, Campus Universitario (Lunes y Jueves de 18:00 a 20:00)</option>
+            </select>
+
+        </fieldset>
+
+
+        
+        <!-- SECCIÓN 2: DATOS PARTICIPANTE -->
+        <h2>Ingresar los Datos del Participante</h2>
+
+        <fieldset>
+            <em>Todos los campos son obligatorios.</em>
+            <br><br>
+
+            <label for="apeynom">Apellido y Nombre:</label> <br>
+            <input type="text" name="apeynom" id="apeynom" size="100" maxlength="100" placeholder="Ejemplo: Juan Pérez" required="">
+
+            <br><br>
+
+            <label for="dni">DNI:</label> <br>
+            <input type="number" id="dni" placeholder="Ingresar DNI sin puntos" required="">
+
+            <br><br>
+
+            <label for="fechanac">Fecha de Nacimiento:</label> <br>
+            <input type="date" id="fechanac" required="">
+
+            <br><br>
+
+            <label for="email">Correo Electrónico:</label> <br>
+            <input type="email" id="email" size="100" maxlength="150" placeholder="juanperez67@gmail.com" required="">
+
+            <br><br>
+
+            <label for="telefono">Teléfono:</label> <br>
+            <input type="tel" id="telefono" placeholder="+54 38 3412-3456" required="">
+
+            <br>
+
+            <p>Sexo:</p>
+
+                <input type="radio" id="femenino" name="sexo" value="femenino">
+                <label for="femenino">Femenino</label><br>
+
+                <input type="radio" id="masculino" name="sexo" value="masculino">
+                <label for="masculino">Masculino</label><br>
+        </fieldset>
+
+
+
+        <!-- SECCIÓN 3: INFORMACIÓN DEPORTIVA -->
+        <h2>Ingresar Información Deportiva</h2>
+
+        <fieldset>
+
+            <label for="nivel">Nivel Deportivo:</label> <br>
+
+            <select name="nivel" id="nivel">
+                <option value="inicial">Inicial (Soy principitante)</option>
+                <option value="intermedio">Intermedio (Tengo experiencia)</option>
+                <option value="avanzado">Avanzado (Deportista — Compito)</option>
+            </select>
+
+            <br>
+
+            <p>¿Posee Experiencia Previa?</p>
+
+                <input type="radio" id="exp_si" name="experiencia" value="si">
+                <label for="exp_si">Sí</label> <br>
+
+                <input type="radio" id="exp_no" name="experiencia" value="no" checked>
+                <label for="exp_no">No</label> <br>
+
+            <br>
+
+            <label for="observaciones">Observaciones:</label> <br>
+            <textarea name="observacion" id="observaciones" rows="5" cols="100" placeholder="Escribe tu observación aquí..."></textarea>
+            <button type="submit">Enviar</button>
+
+        </fieldset>
+
+
+
+        <!-- SECCIÓN 4: ACEPTAR CONDICIONES Y VALIDAR TODO -->
+        <p>Acepto las Condiciones de Inscripción</p>
+
+            <input type="radio" id="cond_si" name="condiciones" value="si" checked required="">
+            <label for="cond_si">Sí</label> <br>
+
+            <input type="radio" id="cond_no" name="condiciones" value="no">
+            <label for="cond_no">No</label> <br>
+
+        <br><br>
+
+        <button type="submit">Aceptar y Enviar Todo</button> &nbsp;&nbsp;
+        <button type="reset">Cancelar Operación</button>
+        
+    </form>
+
+    <footer>
+        <p>&copy; <em>Deportes UNCa - 2026 </em></p>
+    </footer>
+
+</body>
+</html>
