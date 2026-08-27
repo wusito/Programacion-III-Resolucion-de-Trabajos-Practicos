@@ -1,0 +1,25 @@
+header{
+    background-image: linear-gradient(to right, #011325, #375b7d);
+}
+
+h1{
+    font-family: 'Helvetica Neue', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2.5rem;                                
+    font-weight: 400;                                 
+    line-height: 1.2;                                                                  
+    letter-spacing: -0.02em;
+    color: #cde6ff;                          
+}
+
+main{
+    color: #ffffff; 
+}
+
+body{
+    background-image: linear-gradient(to right, #011325, #375b7d);
+}
+
+footer{
+    background-color: #011325;
+    color: #cde6ff; 
+}
