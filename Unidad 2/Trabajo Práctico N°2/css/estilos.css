@@ -1,25 +1,49 @@
 header{
-    background-image: linear-gradient(to right, #011325, #375b7d);
-}
-
-h1{
-    font-family: 'Helvetica Neue', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2.5rem;                                
-    font-weight: 400;                                 
-    line-height: 1.2;                                                                  
-    letter-spacing: -0.02em;
-    color: #cde6ff;                          
+    background-color: #011325;
 }
 
 main{
-    color: #ffffff; 
+    color: #cde6ff; 
 }
 
 body{
     background-image: linear-gradient(to right, #011325, #375b7d);
+    font-family: 'Helvetica Neue', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 footer{
     background-color: #011325;
     color: #cde6ff; 
 }
+
+.introduccion{
+    font-size: 1.5rem;                                
+    font-weight: 350;                                 
+    line-height: 1.2;                                                                  
+    letter-spacing: -0.02em;
+}
+
+h1{
+    font-size: 3.0rem;                                
+    font-weight: 500;                                 
+    line-height: 1.2;                                                                  
+    letter-spacing: -0.02em;
+    color: #cde6ff;                   
+}
+
+h2{
+    font-size: 2.5rem;                                
+    font-weight: 350;                                 
+    line-height: 1.2;                                                                  
+    letter-spacing: -0.02em; 
+}
+
+h3{
+    text-align: center;
+    font-weight:250;                                 
+    line-height: 1.2;                                                                  
+    letter-spacing: -0.02em;
+    background-color: #011325;
+    padding: auto;
+}
+
