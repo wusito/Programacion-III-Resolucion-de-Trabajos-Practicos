@@ -59,3 +59,28 @@ h3{
     box-shadow: inset 0 0 0 3px black;
 }
 
+legend{
+    text-align: center;
+    font-weight:250;                                 
+    line-height: 1.2;                                                                  
+    letter-spacing: -0.02em;
+    color: #ffc107 !important;
+    padding: auto;
+}
+
+fieldset{
+    background-color: #011325;
+    border-radius: 50px;
+    background-clip: padding-box;
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 15px solid transparent; 
+    box-shadow: inset 0 0 0 3px black;
+    padding: 24px;     
+    margin-bottom: 16px;
+}
+
+label{
+    display: block;
+    margin-bottom: 8px;
+}
