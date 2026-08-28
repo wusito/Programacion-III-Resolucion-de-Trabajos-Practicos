@@ -4,84 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscripción</title>
+
+    <!-- Link CSS Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="..\css\estilos.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- ENCABEZADO -->
     <header>
-        <h1>Inscripción a Actividad Deportiva</h1>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.unca.edu.ar/">
+                <img src="..\img\logo unca2.png" alt="Logo" width="200" height="60" class="d-inline-block align-text-top"> </a>
+                <h1>Inscripción a Actividad Deportiva</h1>
+            </div>
+        </nav>
     </header>
+
+     <!-- MENÚ PRINCIPAL -->
+    <nav class="navbar" style="background-color: #011325" data-bs-theme="dark">
+        <!-- Lista de Opciones del Menú Principal -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="pagina1.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Registrarse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Actividades Deportivas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pagina2.html">Inscribirse a una Actividad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pagina3.html">Mis Inscripciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Cancelar Suscripción</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Iniciar Sesión</a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- CONTENIDO -->
     <main>
-        <form action="pagina3.html" method="POST">
-
+        <!-- FORMULARIO -->
+        <form action="procesar-incripcion" method="POST">
             <!-- SECCIÓN 1: INFORMACIÓN DE LA ACTIVIDAD -->
-            <h2>Información y Selección de Actividad</h2>
+            <h4>Información y Selección de Actividad</h4>
 
             <fieldset>
-
                 <label for="actividad">Seleccione la Actividad:</label> <br>
 
-                <select id="actividad" name="actividad">
+                <select id="actividad" name="actividad" class="form-select" aria-label="Default select example">
                     <option value="futbol">Fútbol — Cancha Principal, Campus Universitario (Lunes y Miércoles de 18:00 a 20:00)</option>
                     <option value="basquet">Básquet — Pabellón de Básquet, Campus Universitario (Martes y Jueves de 18:00 a 20:00)</option>
                     <option value="voley">Vóley — Pabellón de Vóley, Campus Universitario (Miércoles y Viernes de 18:00 a 20:00)</option>
                     <option value="atletismo">Atletismo — Circuito de Atletismo, Campus Universitario (Lunes y Jueves de 18:00 a 20:00)</option>
                 </select>
-
             </fieldset>
 
 
-            
             <!-- SECCIÓN 2: DATOS PARTICIPANTE -->
-            <h2>Ingresar los Datos del Participante</h2>
+            <h4>Ingresar los Datos del Participante</h4>
 
-            <fieldset>
+            <fieldset class="row g-3 needs-validation" novalidate>
                 <em>Todos los campos son obligatorios.</em>
                 <br><br>
 
-                <label for="apeynom">Apellido y Nombre:</label> <br>
-                <input type="text" name="apeynom" id="apeynom" size="100" maxlength="100" placeholder="Ejemplo: Juan Pérez" required="">
+                <div class="col-md-4 position-relative">
+                    <label for="apeynom" class="form-label">Apellido y Nombre:</label>
+                    <input type="text" class="form-control" id="apeynom" placeholder="Ejemplo: Juan Pérez" required>
+                    <div class="valid-tooltip">
+                        Muy bien!
+                    </div>
+                </div>
 
-                <br><br>
+                <div class="col-md-4 position-relative">
+                    <label for="dni" class="form-label">DNI:</label>
+                    <input type="number" class="form-control" id="dni" placeholder="Ingresar DNI sin puntos" required>
+                </div>
 
-                <label for="dni">DNI:</label> <br>
-                <input type="number" id="dni" placeholder="Ingresar DNI sin puntos" required="">
+                <div class="col-md-4 position-relative">
+                    <label for="fechanac" class="form-label">Fecha de Nacimiento:</label>
+                    <input type="date" class="form-control" id="fechanac" required>
+                </div>
 
-                <br><br>
+                <div class="col-md-4 position-relative">
+                    <label for="fechanac" class="form-label">Correo Electrónico:</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                </div>
 
-                <label for="fechanac">Fecha de Nacimiento:</label> <br>
-                <input type="date" id="fechanac" required="">
+                <div class="col-md-4 position-relative">
+                    <label for="telefono" class="form-label">Teléfono:</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="+54 38 3412-3456" required>
+                </div>
 
-                <br><br>
-
-                <label for="email">Correo Electrónico:</label> <br>
-                <input type="email" id="email" size="100" maxlength="150" placeholder="juanperez67@gmail.com" required="">
-
-                <br><br>
-
-                <label for="telefono">Teléfono:</label> <br>
-                <input type="tel" id="telefono" placeholder="+54 38 3412-3456" required="">
-
-                <br>
-
-                <p>Sexo:</p>
-
-                    <input type="radio" id="femenino" name="sexo" value="femenino">
-                    <label for="femenino">Femenino</label><br>
-
-                    <input type="radio" id="masculino" name="sexo" value="masculino">
-                    <label for="masculino">Masculino</label><br>
+                <div class="col-md-4 position-relative">
+                    <p>Sexo:</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="femenino">
+                        <label class="form-check-label" for="femenino">
+                            Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="masculino" checked>
+                        <label class="form-check-label" for="masculino">
+                            Masculino
+                        </label>
+                    </div>
+                </div>
             </fieldset>
 
 
-
             <!-- SECCIÓN 3: INFORMACIÓN DEPORTIVA -->
-            <h2>Ingresar Información Deportiva</h2>
-
+            <h4>Ingresar Información Deportiva</h4>
             <fieldset>
-
                 <label for="nivel">Nivel Deportivo:</label> <br>
 
                 <select name="nivel" id="nivel">
@@ -93,13 +139,11 @@
                 <br>
 
                 <p>¿Posee Experiencia Previa?</p>
-
                     <input type="radio" id="exp_si" name="experiencia" value="si">
                     <label for="exp_si">Sí</label> <br>
 
                     <input type="radio" id="exp_no" name="experiencia" value="no" checked>
                     <label for="exp_no">No</label> <br>
-
                 <br>
 
                 <label for="observaciones">Observaciones:</label> <br>
@@ -121,9 +165,10 @@
 
             <br><br>
 
-            <button type="submit">Aceptar y Enviar Todo</button> &nbsp;&nbsp;
-            <button type="reset">Cancelar Operación</button>
-            
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Aceptoar y Enviar</button>  &nbsp;&nbsp;
+                <button class="btn btn-primary" type="reset">Limpiar Formulario</button>
+            </div>
         </form>
     </main>
 
@@ -131,5 +176,8 @@
     <footer>
         <p>&copy; <em>Deportes UNCa - 2026 </em></p>
     </footer>
+
+    <!-- JavaScript de Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
