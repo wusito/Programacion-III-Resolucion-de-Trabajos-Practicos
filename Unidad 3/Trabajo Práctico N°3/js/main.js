@@ -42,3 +42,29 @@ function validarDigitosDNI() {
 
 
 // EJERCICIO 3
+class Actividad {
+    
+    constructor(nombre, lugar, dia, horario, cupo, estado){ 
+        this.nombre = nombre;
+        this.lugar = lugar;
+        this.dia = dia;
+        this.horario = horario;
+        this.cupo = cupo;
+        this.estado = "Disponible";
+    }
+}
+
+
+// EJERCICIO 4
+class SistemaDeportes {
+    
+    constructor() {
+        this.actividades = []; // Lista donde se guardan las actividades.
+    }
+
+  // Método para recibir un objeto Actividad y agregarlo a la lista.
+    agregarActividad(actividad) {
+        this.actividades.push(actividad);
+        console.log(`Actividad agregada: ${actividad.nombre}`);
+    }
+}
