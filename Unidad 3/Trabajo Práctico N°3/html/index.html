@@ -38,8 +38,10 @@
                 Inicio
             </button>
 
-            <button class="nav-link disabled" id="nav-registrarse-tab"
-                type="button" aria-disabled="true">
+            <button class="nav-link" id="nav-registrarse-tab"
+                data-bs-toggle="tab" data-bs-target="#nav-registrarse"
+                type="button" role="tab" aria-controls="nav-registrarse"
+                aria-selected="false">
                 Registrarse
             </button>
 
@@ -170,6 +172,65 @@
             </div>
 
 
+
+            <!-- Contenido de Registrarse  -->
+            <div class="tab-pane fade" id="nav-registrarse"
+                role="tabpanel" aria-labelledby="nav-registrarse-tab" tabindex="0"> 
+                
+                
+                <section class="container-fluid py-5">
+                    
+                    <div class="text-center">
+                        <h2 class="titulo-bienvenida">Registro de Participantes</h2>
+                        <p class="introduccion">Aquí puedes registrar tus datos como los de tus amigos para ser  participantes de las actividades deportivas de la institución.</p>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8">
+                                
+                            <!-- Tarjeta principal del formulario -->
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    <h4 class="mb-0">Formulario de Registro</h4>
+                                </div>
+                                
+                                <div class="card-body">  
+                                    <form action="" method="POST" id="miFormulario">
+                                            
+                                        <!-- Sección generadora -->
+                                        <div class="row align-items-end mb-4 bg-light p-3 rounded border">
+                                            <div class="col-md-8">
+                                                <label for="cantidadParticipantes" class="form-label fw-bold">Cantidad de participantes:</label>
+                                                <input type="number" id="cantidadParticipantes" class="form-control" min="1" max="10" value="1">
+                                            </div>
+                                            <div class="col-md-4 mt-3 mt-md-0">
+                                                <button type="button" id="btnGenerar" class="btn btn-outline-primary w-100">
+                                                    Generar campos
+                                                </button>
+                                            </div>
+                                        </div>
+                                            
+                                        <!-- Contenedor donde se inyectarán los bloques dinámicos -->
+                                        <div id="contenedorParticipantes"></div>
+                                        <hr class="my-4">
+
+                                        <!-- Botones de acción del formulario -->
+                                        <div class="d-flex justify-content-center gap-3">
+                                            <button class="btn btn-secondary px-4" type="reset">Limpiar Todo</button>
+                                            <button class="btn btn-success px-5" type="submit" onclick="alert('Funcionalidad en desarrollo')">Confirmar Inscripción</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
             <!-- Contenido de Actividades Deportivas -->
             <div class="tab-pane fade" id="nav-actividades"
                 role="tabpanel" aria-labelledby="nav-actividades-tab" tabindex="0"> 
@@ -223,7 +284,7 @@
                     </div>
 
                     <!-- FORMULARIO -->
-                    <form action="procesar-incripcion" method="POST">
+                    <form action="procesar-inscripcion" method="POST">
                         <br><br>
 
                         <!-- APARTADO 1: INFORMACIÓN DE LA ACTIVIDAD -->

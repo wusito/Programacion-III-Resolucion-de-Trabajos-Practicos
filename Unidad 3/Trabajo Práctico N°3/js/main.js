@@ -80,10 +80,10 @@ const actividad2 = new Actividad("Básquet", "Pabellón de Básquet, Campus Univ
 const actividad3 = new Actividad("Vóley", "Pabellón de Vóley, Campus Universitario.", "Miércoles y Viernes", "18:00 a 20:00", 10);
 const actividad4 = new Actividad("Atletismo", "Circuito de Atletismo, Campus Universitario.", "Lunes y Jueves", "18:00 a 20:00", 8);
 
-// Instanciamos la clase de SistemaDeportes
+// Instanciamos la clase de SistemaDeportes.
 const miSportSystem = new SistemaDeportes();
 
-// Agregar las actividades al sistema de deportes.
+// Agrega las actividades al sistema de deportes.
 miSportSystem.agregarActividad(actividad1);
 miSportSystem.agregarActividad(actividad2);
 miSportSystem.agregarActividad(actividad3);
@@ -119,3 +119,83 @@ mostrarActividadesDeportivas(miSportSystem);
 
 
 // EJERCICIO 5 -----------------------------------------------------------------------------------------------
+document.getElementById('btnGenerar').addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const cantidadInput = document.getElementById('cantidadParticipantes');
+    const cantidad = parseInt(cantidadInput.value);
+    const contenedor = document.getElementById('contenedorParticipantes');
+
+    // Valida los límites establecidos en el input.
+    if (isNaN(cantidad) || cantidad < 1 || cantidad > 10) {
+        alert("Por favor, ingrese un número válido entre 1 y 10.");
+        return;
+    }
+
+    // Limpia el contenido previo para evitar acumulaciones.
+    contenedor.innerHTML = '';
+
+    // Genera los bloques dinámicamente.
+    for (let i = 1; i <= cantidad; i++) {
+        // Crea el contenedor tipo TARJETA (Card) para cada participante.
+        const divParticipante = document.createElement('div');
+        divParticipante.className = 'card mb-4 border-info';
+
+        // Crea el título del bloque (Cabecera de la tarjeta).
+        const cabecera = document.createElement('div');
+        cabecera.className = 'card-header bg-info text-white fw-bold';
+        cabecera.textContent = `Datos del Participante ${i}`;
+        divParticipante.appendChild(cabecera);
+
+        // Crea el cuerpo de la tarjeta donde irán los inputs.
+        const cuerpoCard = document.createElement('div');
+        cuerpoCard.className = 'card-body row g-3';
+
+        // Define los campos y el tamaño que ocuparán en pantalla.
+        const campos = [
+            { label: 'Apellido y Nombre:', type: 'text', id: `nombre_${i}`, col: 'col-md-12' },
+            { label: 'DNI:', type: 'text', id: `dni_${i}`, col: 'col-md-6' },
+            { label: 'Fecha de nacimiento:', type: 'date', id: `fecha_${i}`, col: 'col-md-6' },
+            { label: 'Sexo:', type: 'select', id: `sexo_${i}`, opciones: ['Seleccionar', 'Masculino', 'Femenino', 'Otro'], col: 'col-md-6' },
+            { label: 'Nivel:', type: 'select', id: `nivel_${i}`, opciones: ['Seleccionar', 'Principiante', 'Intermedio', 'Avanzado'], col: 'col-md-6' }
+        ];
+
+        // Construye los elementos HTML de cada campo.
+        campos.forEach(campo => {
+            const grupo = document.createElement('div');
+            grupo.className = campo.col;
+
+            const label = document.createElement('label');
+            label.className = 'form-label mb-1 text-muted small fw-bold';
+            label.textContent = campo.label;
+            label.setAttribute('for', campo.id);
+            grupo.appendChild(label);
+
+            let input;
+            if (campo.type === 'select') {
+                input = document.createElement('select');
+                input.className = 'form-select';
+                campo.opciones.forEach(opc => {
+                    const option = document.createElement('option');
+                    option.value = opc === 'Seleccionar' ? '' : opc.toLowerCase();
+                    option.textContent = opc;
+                    input.appendChild(option);
+                });
+            } else {
+                input = document.createElement('input');
+                input.type = campo.type;
+                input.className = 'form-control';
+            }
+
+            input.id = campo.id;
+            input.name = campo.id;
+            
+            grupo.appendChild(input);
+            cuerpoCard.appendChild(grupo);
+        });
+
+        // Inserta el cuerpo a la tarjeta, y la tarjeta al contenedor principal.
+        divParticipante.appendChild(cuerpoCard);
+        contenedor.appendChild(divParticipante);
+    }
+});
