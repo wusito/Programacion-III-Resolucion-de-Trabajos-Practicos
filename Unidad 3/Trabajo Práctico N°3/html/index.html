@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deportes UNCa</title>
+
+    <!-- Link CSS Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="..\css\estilos.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- ENCABEZADO -->
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid d-flex flex-column flex-md-row align-items-center">
+                <a class="navbar-brand" href="https://www.unca.edu.ar/">
+                    <img src="../img/logo unca2.png" alt="Logo" 
+                        class="img-fluid" style="max-width: 200px;">
+                </a>
+                <h1 class="text-center mt-3 mt-md-0 ms-md-3">
+                    Plataforma de Actividades Deportivas
+                </h1>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- MENÚ PRINCIPAL -->
+    <nav class="navbar" style="background-color: #011325" data-bs-theme="dark">
+        <div class="nav nav-tabs flex-nowrap overflow-auto" id="nav-tab" role="tablist">
+
+            <button class="nav-link active" id="nav-inicio-tab"
+                data-bs-toggle="tab" data-bs-target="#nav-inicio"
+                type="button" role="tab" aria-controls="nav-inicio"
+                aria-selected="true">
+                Inicio
+            </button>
+
+            <button class="nav-link" id="nav-registrarse-tab"
+                data-bs-toggle="tab" data-bs-target="#nav-registrarse"
+                type="button" role="tab" aria-controls="nav-registrarse"
+                aria-selected="false">
+                Registrarse
+            </button>
+
+            <button class="nav-link" id="nav-actividades-tab"
+                data-bs-toggle="tab" data-bs-target="#nav-actividades"
+                type="button" role="tab" aria-controls="nav-actividades"
+                aria-selected="false">
+                Actividades Deportivas
+            </button>
+
+            <button class="nav-link" id="nav-inscribirse-tab"
+                data-bs-toggle="tab" data-bs-target="#nav-inscribirse"
+                type="button" role="tab" aria-controls="nav-inscribirse"
+                aria-selected="false">
+                Inscribirse a una Actividad
+            </button>
+
+            <button class="nav-link" id="nav-misinscripciones-tab"
+                data-bs-toggle="tab" data-bs-target="#nav-misinscripciones"
+                type="button" role="tab" aria-controls="nav-misinscripciones"
+                aria-selected="false">
+                Mis Inscripciones
+            </button>
+
+            <button class="nav-link disabled" id="nav-cancelar-tab"
+                type="button" aria-disabled="true">
+                Cancelar Suscripción
+            </button>
+
+            <button class="nav-link disabled" id="nav-login-tab"
+                type="button" aria-disabled="true">
+                Iniciar Sesión
+            </button>
+
+        </div>
+    </nav>
+
+    
+
+    <!-- CONTENIDO -->
+    <main class="container-fluid flex-grow-1 d-flex justify-content-center align-items-center p-4">
+
+        <!-- CONTENIDO DE LAS PESTAÑAS -->
+        <div class="tab-content" id="nav-tabContent">
+
+            <!-- Contenido de Inicio -->
+            <div class="tab-pane fade show active" id="nav-inicio"
+                role="tabpanel" aria-labelledby="nav-inicio-tab" tabindex="0">
+                
+                <!-- SECCIÓN 1: ACTIVIDADES DEPORTIVAS -->
+                <section class="container-fluid py-5">
+
+                    <div class="text-center">
+                        <h2 class="titulo-bienvenida">Bienvenido a Deportes UNCa</h2>
+                        <p class="introduccion">Explora nuestras actividades deportivas y encuentra la que mejor se adapte a tus intereses..</p> <br><br>
+                    </div>
+
+                    <!-- CONTENIDO DE ACTIVIDADES -->
+                    <div class="container-fluid">
+                        <div class="row align-items-start g-4">
+
+                            <!-- Actividad 1 -->
+                            <div class="col-12 col-md-6 col-lg-3 col-fondo">
+                                <article>
+                                    <br>
+                                    <h3><strong>Fútbol</strong></h3>
+                                    <p>Disfruta del fútbol en nuestro campo de juego.</p>
+                                    <img src="..\img\mistica.jpg" alt="Imágen de Messi y Cristiano" class="img-fluid"> <br><br>
+                                    <ul class="list-untyled mb-3">
+                                        <li class="mb-1">📌 <strong>Horario:</strong> Lunes y Miércoles de 18:00 a 20:00</li>
+                                        <li class="mb-1">📍 <strong>Ubicación:</strong>  Cancha Principal, Campus Universitario.</li>
+                                        <li class="mb-1">👥 <strong>Cupos disponibles:</strong> 15</li>
+                                    </ul>
+                                    <p class="fs-6 mb-3"><strong>Precio:</strong> <span class="text-warning">$20.000</span> por mes</p><br>
+                                </article>
+                            </div>
+
+                            <!-- Actividad 2 -->
+                            <div class="col-12 col-md-6 col-lg-3 col-fondo">
+                                <article>
+                                    <br>
+                                    <h3><strong>Básquet</strong></h3>
+                                    <p>Practica tu juego de básquet en nuestras canchas.</p>
+                                    <img src="..\img\basket.jpg" alt="Imágen genérica de Básquet" class="img-fluid"> <br><br>
+                                    <ul class="list-untyled mb-3">
+                                        <li class="mb-1">📌 <strong>Horario:</strong> Martes y Jueves de 18:00 a 20:00</li>
+                                        <li class="mb-1">📍 <strong>Ubicación:</strong>  Pabellón de Básquet, Campus Universitario</li>
+                                        <li class="mb-1">👥 <strong>Cupos disponibles:</strong> 12</li>
+                                    </ul>
+                                    <p class="fs-6 mb-3"><strong>Precio:</strong> <span class="text-warning">$25.000</span> por mes</p><br>
+                                </article>
+                            </div>
+
+                            <!-- Actividad 3 -->
+                            <div class="col-12 col-md-6 col-lg-3 col-fondo">
+                                <article>
+                                    <br>
+                                    <h3><strong>Vóley</strong></h3>
+                                    <p>Juega vóley en nuestras instalaciones deportivas.</p>
+                                    <img src="..\img\voley.jpg" alt="Imágen genérica de Vóley" class="img-fluid"> <br><br>
+                                    <ul class="list-untyled mb-3">
+                                        <li class="mb-1">📌 <strong>Horario:</strong> Miércoles y Viernes de 18:00 a 20:00</li>
+                                        <li class="mb-1">📍 <strong>Ubicación:</strong>  Pabellón de Vóley, Campus Universitario.</li>
+                                        <li class="mb-1">👥 <strong>Cupos disponibles:</strong> 10</li>
+                                    </ul>
+                                    <p class="fs-6 mb-3"><strong>Precio:</strong> <span class="text-warning">$20.000</span> por mes</p><br>
+                                </article>
+                            </div>
+
+                            <!-- Actividad 4 -->
+                            <div class="col-12 col-md-6 col-lg-3 col-fondo">
+                                <article>
+                                    <br>
+                                    <h3><strong>Atletismo</strong></h3>
+                                    <p>Entrena tu resistencia y velocidad en nuestro circuito de atletismo.</p>
+                                    <img src="..\img\running.jpg" alt="Imágen genérica de Atletismo" class="img-fluid"> <br><br>
+                                    <ul class="list-untyled mb-3">
+                                        <li class="mb-1">📌 <strong>Horario:</strong> Lunes y Jueves de 18:00 a 20:00</li>
+                                        <li class="mb-1">📍 <strong>Ubicación:</strong>  Circuito de Atletismo, Campus Universitario.</li>
+                                        <li class="mb-1">👥 <strong>Cupos disponibles:</strong> 8</li>
+                                    </ul>
+                                    <p class="fs-6 mb-3"><strong>Precio:</strong> <span class="text-warning">$15.000</span> por mes</p><br>
+                                </article>
+                            </div>
+                        </div>
+                </section>
+                <br><br>
+            </div>
+
+
+
+            <!-- Contenido de Registrarse  -->
+            <div class="tab-pane fade" id="nav-registrarse"
+                role="tabpanel" aria-labelledby="nav-registrarse-tab" tabindex="0"> 
+                
+                
+                <section class="container-fluid py-5">
+                    
+                    <div class="text-center">
+                        <h2 class="titulo-bienvenida">Registro de Participantes</h2>
+                        <p class="introduccion">Aquí puedes registrar tus datos como los de tus amigos para ser  participantes de las actividades deportivas de la institución.</p>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8">
+                                
+                            <!-- Tarjeta principal del formulario -->
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    <h4 class="mb-0">Formulario de Registro</h4>
+                                </div>
+                                
+                                <div class="card-body">  
+                                    <form action="" method="POST" id="miFormulario">
+                                            
+                                        <!-- Sección generadora -->
+                                        <div class="row align-items-end mb-4 bg-light p-3 rounded border">
+                                            <div class="col-md-8">
+                                                <label for="cantidadParticipantes" class="form-label fw-bold">Cantidad de participantes:</label>
+                                                <input type="number" id="cantidadParticipantes" class="form-control" min="1" max="10" value="1">
+                                            </div>
+                                            <div class="col-md-4 mt-3 mt-md-0">
+                                                <button type="button" id="btnGenerar" class="btn btn-outline-primary w-100">
+                                                    Generar campos
+                                                </button>
+                                            </div>
+                                        </div>
+                                            
+                                        <!-- Contenedor donde se inyectarán los bloques dinámicos -->
+                                        <div id="contenedorParticipantes"></div>
+                                        <hr class="my-4">
+
+                                        <!-- Botones de acción del formulario -->
+                                        <div class="d-flex justify-content-center gap-3">
+                                            <button class="btn btn-secondary px-4" type="reset">Limpiar Todo</button>
+                                            <button class="btn btn-success px-5" type="submit" onclick="alert('Funcionalidad en desarrollo')">Confirmar Inscripción</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <!-- Contenido de Actividades Deportivas -->
+            <div class="tab-pane fade" id="nav-actividades"
+                role="tabpanel" aria-labelledby="nav-actividades-tab" tabindex="0"> 
+                <section class="container-fluid py-5">
+                    
+                    <div class="text-center">
+                        <h2 class="titulo-bienvenida">Actividades Deportivas</h2>
+                        <p class="introduccion">Aquí puedes consultar toda la información referente a las actividades deportivas que la institución brinda.</p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <fieldset class="col-md-10 mb-3">
+                            <legend>Listado:</legend>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="tablaActividades">
+                                    <!--- Encabezado -->
+                                    <thead class="table-dark">
+                                        <tr>
+                                           <th>Actividad</th>
+                                            <th>Lugar</th>
+                                            <th>Día</th>
+                                            <th>Horario</th>
+                                            <th>Cupos</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+
+                                    <!--- Contenido -->
+                                    <tbody id="cuerpoTabla">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <!-- Contenido de Inscribirse -->
+            <div class="tab-pane fade" id="nav-inscribirse"
+                role="tabpanel" aria-labelledby="nav-inscribirse-tab" tabindex="0">
+                
+                <!-- SECCIÓN 3: INCRIPCIÓN A ACTIVIDADES DEPORTIVAS -->
+                <section class="container-fluid py-5">
+
+                    <div class="text-center">
+                        <h2 class="titulo-bienvenida">Inscripción</h2>
+                        <p class="introduccion">Aquí puedes aportar tus datos para inscribirte a la actividad de tu interés.</p>
+                    </div>
+
+                    <!-- FORMULARIO -->
+                    <form action="procesar-inscripcion" method="POST">
+                        <br><br>
+
+                        <!-- APARTADO 1: INFORMACIÓN DE LA ACTIVIDAD -->
+                        <div  class="row justify-content-center">
+                            <fieldset class="col-12 col-md-10">
+                                <legend>Información y Selección de Actividad</legend>
+                                
+                                <label for="actividad">Seleccione la Actividad:</label> 
+
+                                <div class="col-12 position-relative">
+                                    <select id="actividad" name="actividad" class="form-select" aria-label="Default select example">
+                                        <option value="futbol">Fútbol — Cancha Principal, Campus Universitario (Lunes y Miércoles de 18:00 a 20:00)</option>
+                                        <option value="basquet">Básquet — Pabellón de Básquet, Campus Universitario (Martes y Jueves de 18:00 a 20:00)</option>
+                                        <option value="voley">Vóley — Pabellón de Vóley, Campus Universitario (Miércoles y Viernes de 18:00 a 20:00)</option>
+                                        <option value="atletismo">Atletismo — Circuito de Atletismo, Campus Universitario (Lunes y Jueves de 18:00 a 20:00)</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- APARTADO 2: DATOS PARTICIPANTE -->
+                        <div  class="row justify-content-center">
+                            <fieldset class="col-md-10 row g-3">
+                                <legend>Ingresar los Datos del Participante</legend> 
+
+                                <div class="col-md-4 position-relative">
+                                    <label for="apeynom" class="form-label">Apellido y Nombre:</label>
+                                    <input type="text" class="form-control" id="apeynom" placeholder="Ejemplo: Juan Pérez" required="Campo requerido">
+                                </div>
+
+                                <div class="col-md-4 position-relative">
+                                    <label for="dni" class="form-label">DNI:</label>
+                                    <input type="number" class="form-control" id="dni" placeholder="Ingresar DNI sin puntos" required>
+                                </div>
+
+                                <div class="col-md-4 position-relative">
+                                    <label for="fechanac" class="form-label">Fecha de Nacimiento:</label>
+                                    <input type="date" class="form-control" id="fechanac" required>
+                                </div>
+
+                                <div class="col-md-4 position-relative">
+                                    <label for="fechanac" class="form-label">Correo Electrónico:</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text">@</span>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 position-relative">
+                                    <label for="telefono" class="form-label">Teléfono:</label>
+                                    <input type="tel" class="form-control" id="telefono" placeholder="+54 38 3412-3456" required>
+                                </div>
+
+                                <div class="col-md-4 position-relative">
+                                    <label>Sexo:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="sexo" id="femenino">
+                                        <label class="form-check-label" for="femenino">
+                                            Femenino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="sexo" id="masculino" checked>
+                                        <label class="form-check-label" for="masculino">
+                                            Masculino
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- APARTADO 3: INFORMACIÓN DEPORTIVA -->
+                        <div class="row justify-content-center">
+                            <fieldset class="col-md-10 row g-3">
+                                <legend>Ingresar Información Deportiva</legend>
+
+                                <div class="col-md-4 position-relative">
+                                    <label>¿Posee Experiencia Previa?</label>
+                                    
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="exp_si" name="experiencia" value="si">
+                                        <label class="form-check-label" for="exp_si">Sí</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="exp_no" name="experiencia" value="no" checked>
+                                        <label class="form-check-label" for="exp_no">No</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 position-relative">
+                                    <label for="nivel">Nivel Deportivo:</label>
+
+                                    <select name="nivel" id="nivel" class="form-select" aria-label="Default select example">
+                                        <option value="inicial">Inicial (Soy principiante)</option>
+                                        <option value="intermedio">Intermedio (Tengo experiencia)</option>
+                                        <option value="avanzado">Avanzado (Soy deportista — Compito)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 position-relative">
+                                    <label for="observaciones">Observaciones:</label>
+                                    <textarea name="observacion" id="observaciones" class="form-control" rows="5" placeholder="Escribe tu observación aquí..."></textarea> <br>
+                                    <button class="btn btn-secondary w-100 mb-2" type="submit"  onclick="alert('Funcionalidad en desarrollo')">Enviar</button>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- APARTADO 4: ACEPTAR CONDICIONES Y VALIDAR TODO -->
+                        <div class="row justify-content-center">
+                            <fieldset class="col-md-10 row g-3">
+                                <div class="col-md-6 position-relative">
+                                    <legend>Acepto las Condiciones de Inscripción:</legend>
+                                </div>
+                                <div class="form-check col-md-6 position-relative">
+                                    <input class="form-check-input" type="checkbox" value="" id="condiciones" required>
+                                    <label class="form-check-label" for="checkDefault">Sí</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-md-5 row">
+                                <button class="btn btn-success w-100 mb-2" type="submit" onclick="alert('Funcionalidad en desarrollo')">Confirmar Inscripción</button>
+                            </div>
+                            <div class="col-md-5 row">
+                                <button class="btn btn-info w-100 mb-2" type="reset">Limpiar Formulario</button>
+                            </div>
+                        </div>
+                        <br><br>
+                    </form>
+                </section>
+            </div>
+
+
+
+
+            <div class="tab-pane fade" id="nav-misinscripciones"
+                role="tabpanel" aria-labelledby="nav-misinscripciones-tab" tabindex="0"> <!-- Contenido de Mis Inscripciones -->
+                
+                <!--SECCIÓN 4: VISUALIZAR INSCRIPCIONES REALIZADAS POR LOS PARTICIPANTES -->
+                <section class="container-fluid py-5">
+
+                    <div class="text-center">
+                        <h2 class="titulo-bienvenida">Mis Inscripciones</h2>
+                        <p class="introduccion">Aquí puedes visualizar las actividades en las que te hayas inscripto en la plataforma.</p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <fieldset class="col-md-10 mb-3">
+                            <legend>Inscripciones realizadas:</legend>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <!--- Encabezado -->
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Actividad</th>
+                                            <th>Lugar</th>
+                                            <th>Días</th>
+                                            <th>Horario</th>
+                                            <th>Estado</th>
+                                            <th>¿Desea Cancelar?</th>
+                                        </tr>
+                                    </thead>
+
+                                    <!--- Contenido -->
+                                    <tbody>
+                                        <tr>
+                                            <td>Fútbol</td>
+                                            <td>Cancha Principal, Campus Universitario.</td>
+                                            <td>Lunes y Miércoles</td>
+                                            <td>18:00 a 20:00</td>
+                                            <td>Activa</td>
+                                            <td>
+                                                <!-- El botón está deshabilitado -->
+                                                <button class="btn btn-danger w-100 mb-2" type="button" onclick="alert('Funcionalidad en desarrollo')">Cancelar inscripción</button>
+                                            </td>
+                                        </tr>
+                                            
+                                        <tr>
+                                            <td>Vóley</td>
+                                            <td>Pabellón de Vóley, Campus Universitario.</td>
+                                            <td>Miércoles y Viernes</td>
+                                            <td>18:00 a 20:00</td>
+                                            <td>Activa</td>
+                                            <td>
+                                                <!-- El botón está deshabilitado -->
+                                                <button class="btn btn-danger w-100 mb-2" type="button" onclick="alert('Funcionalidad en desarrollo')">Cancelar inscripción</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="text-light text-center py-3 mt-5">
+        <p class="mb-0">&copy; <em>Deportes UNCa - 2026</em></p>
+    </footer>
+
+    <!-- VINCULAR LAS FUNCIONALIDADES DE JAVASCRIPT -->
+    <script src="../js/main.js"></script>
+
+    <!-- JavaScript de Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
