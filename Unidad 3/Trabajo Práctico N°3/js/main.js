@@ -187,6 +187,7 @@ document.getElementById('btnGenerar').addEventListener('click', (e) => {
                 input.className = 'form-control';
             }
 
+            input.required = true;
             input.id = campo.id;
             input.name = campo.id;
             
