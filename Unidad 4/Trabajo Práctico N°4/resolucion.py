@@ -18,7 +18,10 @@ def mostrarMenu():
 
 
 
+
+
 """ ----------------------------------------------------------------------------------------------------------------
+
 Ejercicio Nro 1: Validación de entrada y búsqueda en una Lista.
 
 Implementar un programa que valide la entrada de un número entero y verifique su presencia en
@@ -32,6 +35,7 @@ Requisitos:
 
 Concepto útil: Utilizar la sintaxis [valor] in [lista] para comprobar la presencia de un valor en una
 lista.
+
 ---------------------------------------------------------------------------------------------------------------- """
 
 def ejercicio1():
@@ -64,7 +68,9 @@ def ejercicio1():
 
 
 
+
 """ ----------------------------------------------------------------------------------------------------------------
+
 Ejercicio Nro 2: Gestión de Conjuntos de Usuarios y Administradores
 
 Requisitos:
@@ -75,11 +81,50 @@ Requisitos:
 5. Mostrar todos los usuarios, indicando si cada uno es administrador o no.
 
 Sugerencia: Utilizar el método .discard(elemento) para eliminar un elemento de un conjunto.
+
 ---------------------------------------------------------------------------------------------------------------- """
-        
+
+def ejercicio2():
+    subprocess.run('cls' if os.name == 'nt' else 'clear', shell=True)
+    print(" ---------------------- EJERCICIO N°2 ----------------------")
+
+    usuarios = {"Marcela", "David", "Elvira", "Juan", "Marcos"}
+    administradores = {"Juan", "Marcela"}
+
+    administradores.discard("Juan")
+    administradores.add("Marcos")
+
+    print("\nEstado actual de los usuarios:")
+    for usuario in usuarios:
+        if usuario in administradores:
+            print(f"    - {usuario}: Es Administrador")
+        else:
+            print(f"    - {usuario}: No es Administrador")
+
+    pressEnterToContinue()
 
 
 
+
+
+""" ----------------------------------------------------------------------------------------------------------------
+
+Ejercicio Nro 3: Registro de Información en un Diccionario.
+
+Requisitos:
+1. Solicitar al usuario que ingrese los siguientes datos: nombre, edad, dirección y teléfono.
+2. Almacenar los datos en un diccionario llamado usuario_info.
+3. Permitir el ingreso de información para varios usuarios.
+4. Mostrar la información ingresada para cada usuario en formato clave-valor.
+
+---------------------------------------------------------------------------------------------------------------- """
+
+
+
+
+
+
+# Función principal.
 def main():
     opc = -1
 
@@ -89,6 +134,8 @@ def main():
 
         if opc == 1:
             ejercicio1()
+        elif opc == 2:
+            ejercicio2()
         elif opc == 5:
             pressEnterToContinue()
             break
