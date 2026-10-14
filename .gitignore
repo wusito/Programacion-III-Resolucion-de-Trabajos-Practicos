@@ -1,5 +1,7 @@
-# File: .idea
+# Files:
 .idea/
+*.env
+.env
 
 # Temp
 tempCodeRunnerFile*
