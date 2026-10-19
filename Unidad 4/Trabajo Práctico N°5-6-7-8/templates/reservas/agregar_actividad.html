@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar Actividad Deportiva - UNCa{% endblock %}
+
+{% block content %}
+<section class="container-fluid py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      
+      <!-- Sistema de Mensajes (Confirmación / Error) -->
+      {% if messages %}
+        {% for message in messages %}
+        <div
+          class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %}
+      {% endif %}
+
+      <!-- Tarjeta con el Formulario -->
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white text-center py-3">
+          <h4 class="mb-0 fw-bold">Registrar Nueva Actividad Deportiva</h4>
+        </div>
+        <div class="card-body p-4">
+          <form method="POST" novalidate>
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label
+                for="{{ form.nombre.id_for_label }}"
+                class="form-label fw-bold"
+                >Nombre de la Actividad:</label
+              >
+              {{ form.nombre }}
+              {% if form.nombre.errors %}
+              <div class="text-danger small">
+                {{ form.nombre.errors.0 }}
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="{{ form.descripcion.id_for_label }}"
+                class="form-label fw-bold"
+                >Descripción:</label
+              >
+              {{ form.descripcion }}
+              {% if form.descripcion.errors %}
+              <div class="text-danger small">
+                {{ form.descripcion.errors.0 }}
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="{{ form.lugar.id_for_label }}"
+                class="form-label fw-bold"
+                >Lugar / Instalación:</label
+              >
+              {{ form.lugar }}
+              {% if form.lugar.errors %}
+              <div class="text-danger small">{{ form.lugar.errors.0 }}</div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="{{ form.cupo.id_for_label }}"
+                class="form-label fw-bold"
+                >Cupo Máximo:</label
+              >
+              {{ form.cupo }}
+              {% if form.cupo.errors %}
+              <div class="text-danger small">{{ form.cupo.errors.0 }}</div>
+              {% endif %}
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+              <button type="submit" class="btn btn-success fw-bold py-2">
+                Guardar Actividad
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

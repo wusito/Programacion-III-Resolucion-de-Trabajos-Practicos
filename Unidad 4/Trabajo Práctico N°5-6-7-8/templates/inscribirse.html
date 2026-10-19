@@ -1,0 +1,247 @@
+{% extends 'base.html' %} 
+
+{% block title %}Inscripción - Deportes UNCa{%endblock %} 
+
+{% block content %}
+<section class="container-fluid py-5">
+  <div class="text-center">
+    <h2 class="titulo-bienvenida">Inscripción</h2>
+    <p class="introduccion">
+      Aquí puedes aportar tus datos para inscribirte a la actividad de tu
+      interés.
+    </p>
+  </div>
+
+  <!-- FORMULARIO -->
+  <form action="procesar-inscripcion" method="POST">
+    {% csrf_token %}
+    <br /><br />
+
+    <!-- APARTADO 1: INFORMACIÓN DE LA ACTIVIDAD -->
+    <div class="row justify-content-center">
+      <fieldset class="col-12 col-md-10">
+        <legend>Información y Selección de Actividad</legend>
+
+        <label for="actividad">Seleccione la Actividad:</label>
+
+        <div class="col-12 position-relative">
+          <select
+            id="actividad"
+            name="actividad"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option value="futbol">
+              Fútbol — Cancha Principal, Campus Universitario (Lunes y Miércoles
+              de 18:00 a 20:00)
+            </option>
+            <option value="basquet">
+              Básquet — Pabellón de Básquet, Campus Universitario (Martes y
+              Jueves de 18:00 a 20:00)
+            </option>
+            <option value="voley">
+              Vóley — Pabellón de Vóley, Campus Universitario (Miércoles y
+              Viernes de 18:00 a 20:00)
+            </option>
+            <option value="atletismo">
+              Atletismo — Circuito de Atletismo, Campus Universitario (Lunes y
+              Jueves de 18:00 a 20:00)
+            </option>
+          </select>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- APARTADO 2: DATOS PARTICIPANTE -->
+    <div class="row justify-content-center">
+      <fieldset class="col-md-10 row g-3">
+        <legend>Ingresar los Datos del Participante</legend>
+
+        <div class="col-md-4 position-relative">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            placeholder="Ejemplo: Juan"
+            required
+          />
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="apellido" class="form-label">Apellido:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellido"
+            placeholder="Ejemplo: Pérez"
+            required
+          />
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="dni" class="form-label">DNI:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="dni"
+            placeholder="Ingresar DNI sin puntos"
+            required
+          />
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="fechanac" class="form-label">Fecha de Nacimiento:</label>
+          <input type="date" class="form-control" id="fechanac" required />
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="email" class="form-label">Correo Electrónico:</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text">@</span>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="telefono" class="form-label">Teléfono:</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefono"
+            placeholder="+54 38 3412-3456"
+            required
+          />
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label>Sexo:</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sexo"
+              id="femenino"
+            />
+            <label class="form-check-label" for="femenino">Femenino</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sexo"
+              id="masculino"
+              checked
+            />
+            <label class="form-check-label" for="masculino">Masculino</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- APARTADO 3: INFORMACIÓN DEPORTIVA -->
+    <div class="row justify-content-center">
+      <fieldset class="col-md-10 row g-3">
+        <legend>Ingresar Información Deportiva</legend>
+
+        <div class="col-md-4 position-relative">
+          <label>¿Posee Experiencia Previa?</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="exp_si"
+              name="experiencia"
+              value="si"
+            />
+            <label class="form-check-label" for="exp_si">Sí</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="exp_no"
+              name="experiencia"
+              value="no"
+              checked
+            />
+            <label class="form-check-label" for="exp_no">No</label>
+          </div>
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="nivel">Nivel Deportivo:</label>
+          <select
+            name="nivel"
+            id="nivel"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option value="inicial">Inicial (Soy principiante)</option>
+            <option value="intermedio">Intermedio (Tengo experiencia)</option>
+            <option value="avanzado">
+              Avanzado (Soy deportista — Compito)
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-4 position-relative">
+          <label for="observaciones">Observaciones:</label>
+          <textarea
+            name="observacion"
+            id="observaciones"
+            class="form-control"
+            rows="5"
+            placeholder="Escribe tu observación aquí..."
+          ></textarea>
+          <br />
+          <button
+            class="btn btn-secondary w-100 mb-2"
+            type="submit"
+            onclick="alert('Funcionalidad en desarrollo')"
+          >
+            Enviar
+          </button>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- APARTADO 4: ACEPTAR CONDICIONES Y VALIDAR -->
+    <div class="row justify-content-center">
+      <fieldset class="col-md-10 row g-3">
+        <div class="col-md-6 position-relative">
+          <legend>Acepto las Condiciones de Inscripción:</legend>
+        </div>
+        <div class="form-check col-md-6 position-relative">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="condiciones"
+            required
+          />
+          <label class="form-check-label" for="condiciones">Sí</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-5 row">
+        <button
+          class="btn btn-success w-100 mb-2"
+          type="submit"
+          onclick="alert('Funcionalidad en desarrollo')"
+        >
+          Confirmar Inscripción
+        </button>
+      </div>
+      <div class="col-md-5 row">
+        <button class="btn btn-info w-100 mb-2" type="reset">
+          Limpiar Formulario
+        </button>
+      </div>
+    </div>
+    <br /><br />
+  </form>
+</section>
+{% endblock %}

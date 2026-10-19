@@ -55,8 +55,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # <-- Esto le dice a Django dónde buscar plantillas globales
+        'APP_DIRS': True, # <-- Esto permite que busque también dentro de las carpetas 'templates' de cada app
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -65,6 +65,12 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
