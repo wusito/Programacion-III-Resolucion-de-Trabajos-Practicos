@@ -153,12 +153,14 @@ document.getElementById('btnGenerar').addEventListener('click', (e) => {
 
         // Define los campos y el tamaño que ocuparán en pantalla.
         const campos = [
-            { label: 'Apellido y Nombre:', type: 'text', id: `nombre_${i}`, col: 'col-md-12' },
+            { label: 'Apellido:', type: 'text', id: `apellido_${i}`, col: 'col-md-6' },
+            { label: 'Nombre:', type: 'text', id: `nombre_${i}`, col: 'col-md-6' },
             { label: 'DNI:', type: 'text', id: `dni_${i}`, col: 'col-md-6' },
             { label: 'Fecha de nacimiento:', type: 'date', id: `fecha_${i}`, col: 'col-md-6' },
             { label: 'Sexo:', type: 'select', id: `sexo_${i}`, opciones: ['Seleccionar', 'Masculino', 'Femenino', 'Otro'], col: 'col-md-6' },
             { label: 'Nivel:', type: 'select', id: `nivel_${i}`, opciones: ['Seleccionar', 'Principiante', 'Intermedio', 'Avanzado'], col: 'col-md-6' }
         ];
+
 
         // Construye los elementos HTML de cada campo.
         campos.forEach(campo => {
