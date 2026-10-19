@@ -69,10 +69,7 @@ class Horario (models.Model):
     )
 
     def __str__(self):
-        return (
-            f"{self.ActividadDeportiva.nombre} - {self.get_dia_display()} "
-            f"({self.hora_inicio} a {self.hora_fin})"
-        )
+        return f"{self.actividad_deportiva.nombre} - {self.get_dia_display()} ({self.hora_inicio} a {self.hora_fin})"
 
     class Meta:
         verbose_name = "Horario"
@@ -88,6 +85,13 @@ class Inscripcion(models.Model):
         ("CAN", "Cancelada"),
     ]
 
+    NIVELES_DEPORTIVOS = [
+        ("inicial", "Inicial (Soy principiante)"),
+        ("intermedio", "Intermedio (Tengo experiencia)"),
+        ("avanzado", "Avanzado (Soy deportista — Compito)"),
+    ]
+
+    # Datos personales del formulario.
     nombre = models.CharField(
         max_length = 100, 
         verbose_name = "Nombre del participante"
@@ -98,22 +102,70 @@ class Inscripcion(models.Model):
         verbose_name = "Apellido del participante"
         )
     
-    dni = models.CharField(
+    dni = models.CharField( #Si una misma persona se inscribe a varias actividades, el DNI no debería ser unique=True.
         max_length = 8, 
-        unique = True, 
         verbose_name = "Documento de identidad"
     )
 
+    email = models.EmailField(
+        verbose_name="Correo Electrónico", 
+        blank=True, 
+        null=True
+    )
+    
+    telefono = models.CharField(
+        max_length=20, 
+        verbose_name="Teléfono", 
+        blank=True, 
+        null=True
+    )
+    
+    fecha_nacimiento = models.DateField(
+        verbose_name="Fecha de Nacimiento", 
+        blank=True, 
+        null=True
+    )
+    
+    sexo = models.CharField(
+        max_length=20, 
+        verbose_name="Sexo", 
+        blank=True, 
+        null=True
+    )
+
+
+    # Información deportiva del formulario HTML
+    experiencia_previa = models.BooleanField(
+        default=False, 
+        verbose_name="¿Posee Experiencia Previa?"
+    )
+    
+    nivel_deportivo = models.CharField(
+        max_length=20, 
+        choices=NIVELES_DEPORTIVOS, 
+        default="inicial", 
+        verbose_name="Nivel Deportivo"
+    )
+    
+    observaciones = models.TextField(
+        blank=True, 
+        null=True, 
+        verbose_name="Observaciones"
+    )
+    
+    # Datos administrativos de la inscripción
     fecha_inscripcion = models.DateField(
-        default = timezone.now, verbose_name = "Fecha de registro"
+        default=timezone.now, 
+        verbose_name="Fecha de registro"
     )
 
     estado = models.CharField(
-        max_length = 3,
-        choices = ESTADOS_INSCRIPCION,
-        default = "ACT",
-        verbose_name = "Estado de la inscripción",
+        max_length=3,
+        choices=ESTADOS_INSCRIPCION,
+        default="ACT",
+        verbose_name="Estado de la inscripción",
     )
+
 
     # Relación 1:1 - Cada inscripción deberá estar asociada a un horario.
     horario = models.ForeignKey(
