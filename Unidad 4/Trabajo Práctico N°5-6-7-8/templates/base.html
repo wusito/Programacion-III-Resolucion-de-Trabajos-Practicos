@@ -58,6 +58,12 @@
         >
 
         <a
+          class="nav-link {% if request.resolver_match.url_name == 'agregar_actividad' %}active{% endif %}"
+          href="{% url 'agregar_actividad' %}"
+          >Agregar Actividad Deportiva</a
+        >
+
+        <a
           class="nav-link {% if request.resolver_match.url_name == 'inscribirse' %}active{% endif %}"
           href="{% url 'inscribirse' %}"
           >Inscribirse a una Actividad</a
