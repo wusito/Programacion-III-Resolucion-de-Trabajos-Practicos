@@ -13,12 +13,23 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+    path('registrarse/', views.registrarse, name='registrarse'),
+        path('actividades/', views.lista_actividades, name='lista_actividades'),
+        path('inscribirse/', views.inscribirse, name='inscribirse'),
+        path('mis-inscripciones/', views.mis_inscripciones, name='mis_inscripciones'),
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
+from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    path('registrarse/', views.registrarse, name='registrarse'),
+    path('inscribirse/', views.inscribirse, name='inscribirse'),
+    path('mis-inscripciones/', views.mis_inscripciones, name='mis_inscripciones'),
     # URLs de las Apps.
     path('', include('apps.reservas.urls')),
 ]

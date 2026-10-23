@@ -55,10 +55,11 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], # <-- Esto le dice a Django dónde buscar plantillas globales
+        'DIRS': [BASE_DIR, 'templates'], # <-- Esto le dice a Django dónde buscar plantillas globales
         'APP_DIRS': True, # <-- Esto permite que busque también dentro de las carpetas 'templates' de cada app
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',

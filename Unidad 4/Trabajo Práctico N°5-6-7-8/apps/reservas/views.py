@@ -33,15 +33,3 @@ def detalle_actividad(request, pk):
     
     # Renderiza la plantilla enviando los datos de la actividad.
     return render(request, 'reservas/detalle_actividad.html', {'actividad': actividad})
-
-def index(request):
-    return render(request, 'index.html')
-
-def registrarse(request):
-    return render(request, 'registrarse.html')
-
-def inscribirse(request):
-    return render(request, 'inscribirse.html')
-
-def mis_inscripciones(request):
-    return render(request, 'mis_inscripciones.html')

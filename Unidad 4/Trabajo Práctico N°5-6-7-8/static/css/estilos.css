@@ -1,86 +1,127 @@
-header{
-    background-color: #011325;
-}
-
-main{
-    color: #cde6ff; 
-}
-
-body{
+/* Configuración general y tipografía base */
+body {
     background-image: linear-gradient(to right, #011325, #375b7d);
-    font-style: initial;
+    color: #cde6ff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-footer{
+/* Estructura principal */
+header {
     background-color: #011325;
-    color: #cde6ff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.introduccion{
-    font-size: 1.5rem;                                
-    font-weight: 350;                                 
-    line-height: 1.2;                                                                  
-    letter-spacing: -0.02em;
+main {
+    color: #cde6ff;
+    flex: 1;
 }
 
-h1{
-    font-size: 3.0rem;                                
-    font-weight: 500;                                 
-    line-height: 1.2;                                                                  
-    letter-spacing: -0.02em;
-    color: #cde6ff;                   
-}
-
-h2{
-    font-size: 2.5rem;                                
-    font-weight: 350;                                 
-    line-height: 1.2;                                                                  
-    letter-spacing: -0.02em;
-    color: #ffc107 !important;
-}
-
-h3{
+footer {
+    background-color: #011325;
+    color: #cde6ff;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
     text-align: center;
-    font-weight:250;                                 
-    line-height: 1.2;                                                                  
+    padding: 1rem;
+}
+
+/* Tipografías y Clases de Texto */
+.introduccion {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #cde6ff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #ffc107 !important;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     background-color: #011325;
     color: #ffc107 !important;
-    padding: auto;
+    padding: 10px;
+    border-radius: 8px;
 }
 
-.col-fondo{
+/* Contenedores y Tarjetas */
+.col-fondo {
     background-color: #011325;
-    border-radius: 50px;
+    border-radius: 24px; /* Un radio un poco más armónico, pero puedes subirlo a 50px si prefieres la curva cerrada */
     background-clip: padding-box;
-    max-width: 400px; 
+    max-width: 400px;
     margin: 0 auto;
-    border: 15px solid transparent; 
-    box-shadow: inset 0 0 0 3px black;
+    border: 8px solid transparent;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1), 0 10px 25px rgba(0, 0, 0, 0.4);
+    padding: 20px;
 }
 
-legend{
-    text-align: center;
-    font-weight:250;                                 
-    line-height: 1.2;                                                                  
-    letter-spacing: -0.02em;
-    color: #ffc107 !important;
-    padding: auto;
-}
-
-fieldset{
+/* Formularios y Fieldsets */
+fieldset {
     background-color: #011325;
-    border-radius: 50px;
+    border-radius: 24px;
     background-clip: padding-box;
     max-width: 1400px;
-    margin: 0 auto;
-    border: 15px solid transparent; 
-    box-shadow: inset 0 0 0 3px black;
-    padding: 24px;     
-    margin-bottom: 16px;
+    margin: 0 auto 16px auto;
+    border: 8px solid transparent;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1), 0 10px 25px rgba(0, 0, 0, 0.4);
+    padding: 24px;
 }
 
-label{
+legend {
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #ffc107 !important;
+    padding: 0 12px;
+    font-size: 1.25rem;
+}
+
+label {
     display: block;
     margin-bottom: 8px;
+    color: #cde6ff;
+    font-weight: 400;
+}
+
+/* Mejora extra sugerida para inputs dentro de tus fieldsets */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(205, 230, 255, 0.2);
+    border-radius: 8px;
+    color: #cde6ff;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
 }
