@@ -30,28 +30,21 @@
             name="actividad"
             class="form-select"
             aria-label="Default select example"
+            required
           >
-            <option value="futbol">
-              Fútbol — Cancha Principal, Campus Universitario (Lunes y Miércoles
-              de 18:00 a 20:00)
-            </option>
-            <option value="basquet">
-              Básquet — Pabellón de Básquet, Campus Universitario (Martes y
-              Jueves de 18:00 a 20:00)
-            </option>
-            <option value="voley">
-              Vóley — Pabellón de Vóley, Campus Universitario (Miércoles y
-              Viernes de 18:00 a 20:00)
-            </option>
-            <option value="atletismo">
-              Atletismo — Circuito de Atletismo, Campus Universitario (Lunes y
-              Jueves de 18:00 a 20:00)
-            </option>
+            <option value="" selected disabled>Seleccione una actividad...</option>
+            {% for actividad in actividades %}
+              <option value="{{ actividad.id }}">
+                {{ actividad.nombre }} — {{ actividad.lugar }} (Cupo: {{ actividad.cupo }})
+              </option>
+            {% empty %}
+              <option value="" disabled>No hay actividades disponibles actualmente.</option>
+            {% endfor %}
           </select>
         </div>
       </fieldset>
     </div>
-
+    
     <!-- APARTADO GENERADOR DE PARTICIPANTES -->
     <div class="row justify-content-center">
       <fieldset class="col-12 col-md-10">
