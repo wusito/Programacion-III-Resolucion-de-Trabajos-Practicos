@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     // EJERCICO 1 ------------------------------------------------------------------------------------------------
-    const inputFechaNac = document.getElementById('fechanac');
-    if (inputFechaNac) {
-        inputFechaNac.addEventListener('change', () => {
+    // Función delegada para validar cualquier input de fecha de nacimiento (estático o dinámico)
+    document.addEventListener('change', (e) => {
+        if (e.target && (e.target.id === 'fechanac' || e.target.id.startsWith('fecha_') || e.target.id.startsWith('fechanac_'))) {
+            const inputFechaNac = e.target;
             const fechaIngresadaValue = inputFechaNac.value;
             if (!fechaIngresadaValue) return;
 
@@ -17,15 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 return false;
             }
             return true;
-        });
-    }
+        }
+    });
 
 
 
     // EJERCICO 2 ------------------------------------------------------------------------------------------------
-    const inputDNI = document.getElementById('dni');
-    if (inputDNI) {
-        inputDNI.addEventListener('change', () => {
+    // Función delegada para validar cualquier input de DNI (estático o dinámico)
+    document.addEventListener('change', (e) => {
+        if (e.target && (e.target.id === 'dni' || e.target.id.startsWith('dni_'))) {
+            const inputDNI = e.target;
             const dniValue = inputDNI.value.trim();
             if (!dniValue) return false;
 
@@ -35,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 return false;
             }
             return true;
-        });
-    }
+        }
+    });
 
 
 
@@ -117,90 +119,134 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // EJERCICIO 5 -----------------------------------------------------------------------------------------------
+    const generarParticipantes = () => {
+        const cantidadInput = document.getElementById('cantidadParticipantes');
+        if (!cantidadInput) return;
+        const cantidad = parseInt(cantidadInput.value);
+        const contenedor = document.getElementById('contenedorParticipantes');
+        if (!contenedor) return;
+
+        // Valida los límites establecidos en el input.
+        if (isNaN(cantidad) || cantidad < 1 || cantidad > 10) {
+            alert("Por favor, ingrese un número válido entre 1 y 10.");
+            return;
+        }
+
+        // Limpia el contenido previo del contenedor dinámico.
+        contenedor.innerHTML = '';
+
+        // Genera los bloques dinámicamente con la misma estructura visual original.
+        for (let i = 1; i <= cantidad; i++) {
+            const divParticipante = document.createElement('div');
+            divParticipante.className = 'row g-3 p-0 m-0 w-100 mb-4';
+
+            // Si hay más de un participante, muestra un subtítulo integrador.
+            let titulo = '';
+            if (cantidad > 1) {
+                titulo = `<div class="col-12"><h6 class="text-warning fw-bold mb-2">Participante ${i}</h6></div>`;
+            }
+
+            divParticipante.innerHTML = `
+                ${titulo}
+                <div class="col-md-4 position-relative">
+                    <label for="nombre_${i}" class="form-label">Nombre:</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="nombre_${i}"
+                        name="nombre_${i}"
+                        placeholder="Ejemplo: Juan"
+                        required
+                    />
+                </div>
+
+                <div class="col-md-4 position-relative">
+                    <label for="apellido_${i}" class="form-label">Apellido:</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="apellido_${i}"
+                        name="apellido_${i}"
+                        placeholder="Ejemplo: Pérez"
+                        required
+                    />
+                </div>
+
+                <div class="col-md-4 position-relative">
+                    <label for="dni_${i}" class="form-label">DNI:</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="dni_${i}"
+                        name="dni_${i}"
+                        placeholder="Ingresar DNI sin puntos"
+                        required
+                    />
+                </div>
+
+                <div class="col-md-4 position-relative">
+                    <label for="fechanac_${i}" class="form-label">Fecha de Nacimiento:</label>
+                    <input type="date" class="form-control" id="fechanac_${i}" name="fechanac_${i}" required />
+                </div>
+
+                <div class="col-md-4 position-relative">
+                    <label for="email_${i}" class="form-label">Correo Electrónico:</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="email_${i}" name="email_${i}" required />
+                    </div>
+                </div>
+
+                <div class="col-md-4 position-relative">
+                    <label for="telefono_${i}" class="form-label">Teléfono:</label>
+                    <input
+                        type="tel"
+                        class="form-control"
+                        id="telefono_${i}"
+                        name="telefono_${i}"
+                        placeholder="+54 38 3412-3456"
+                        required
+                    />
+                </div>
+
+                <div class="col-md-4 position-relative">
+                    <label>Sexo:</label>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="sexo_${i}"
+                            id="femenino_${i}"
+                            value="femenino"
+                        />
+                        <label class="form-check-label" for="femenino_${i}">Femenino</label>
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="sexo_${i}"
+                            id="masculino_${i}"
+                            value="masculino"
+                            checked
+                        />
+                        <label class="form-check-label" for="masculino_${i}">Masculino</label>
+                    </div>
+                </div>
+            `;
+
+            contenedor.appendChild(divParticipante);
+        }
+    };
+
     const btnGenerar = document.getElementById('btnGenerar');
     if (btnGenerar) {
         btnGenerar.addEventListener('click', (e) => {
             e.preventDefault();
-
-            const cantidadInput = document.getElementById('cantidadParticipantes');
-            const cantidad = parseInt(cantidadInput.value);
-            const contenedor = document.getElementById('contenedorParticipantes');
-
-            // Valida los límites establecidos en el input.
-            if (isNaN(cantidad) || cantidad < 1 || cantidad > 10) {
-                alert("Por favor, ingrese un número válido entre 1 y 10.");
-                return;
-            }
-
-            // Limpia el contenido previo para evitar acumulaciones.
-            contenedor.innerHTML = '';
-
-            // Genera los bloques dinámicamente.
-            for (let i = 1; i <= cantidad; i++) {
-                // Crea el contenedor tipo TARJETA (Card) para cada participante.
-                const divParticipante = document.createElement('div');
-                divParticipante.className = 'card mb-4 border-info';
-
-                // Crea el título del bloque (Cabecera de la tarjeta).
-                const cabecera = document.createElement('div');
-                cabecera.className = 'card-header bg-info text-white fw-bold';
-                cabecera.textContent = `Datos del Participante ${i}`;
-                divParticipante.appendChild(cabecera);
-
-                // Crea el cuerpo de la tarjeta donde irán los inputs.
-                const cuerpoCard = document.createElement('div');
-                cuerpoCard.className = 'card-body row g-3';
-
-                // Define los campos y el tamaño que ocuparán en pantalla.
-                const campos = [
-                    { label: 'Apellido:', type: 'text', id: `apellido_${i}`, col: 'col-md-6' },
-                    { label: 'Nombre:', type: 'text', id: `nombre_${i}`, col: 'col-md-6' },
-                    { label: 'DNI:', type: 'text', id: `dni_${i}`, col: 'col-md-6' },
-                    { label: 'Fecha de nacimiento:', type: 'date', id: `fecha_${i}`, col: 'col-md-6' },
-                    { label: 'Sexo:', type: 'select', id: `sexo_${i}`, opciones: ['Seleccionar', 'Masculino', 'Femenino', 'Otro'], col: 'col-md-6' },
-                    { label: 'Nivel:', type: 'select', id: `nivel_${i}`, opciones: ['Seleccionar', 'Principiante', 'Intermedio', 'Avanzado'], col: 'col-md-6' }
-                ];
-
-
-                // Construye los elementos HTML de cada campo.
-                campos.forEach(campo => {
-                    const grupo = document.createElement('div');
-                    grupo.className = campo.col;
-
-                    const label = document.createElement('label');
-                    label.className = 'form-label mb-1 text-muted small fw-bold';
-                    label.textContent = campo.label;
-                    label.setAttribute('for', campo.id);
-                    grupo.appendChild(label);
-
-                    let input;
-                    if (campo.type === 'select') {
-                        input = document.createElement('select');
-                        input.className = 'form-select';
-                        campo.opciones.forEach(opc => {
-                            const option = document.createElement('option');
-                            option.value = opc === 'Seleccionar' ? '' : opc.toLowerCase();
-                            option.textContent = opc;
-                            input.appendChild(option);
-                        });
-                    } else {
-                        input = document.createElement('input');
-                        input.type = campo.type;
-                        input.className = 'form-control';
-                    }
-
-                    input.required = true;
-                    input.id = campo.id;
-                    input.name = campo.id;
-                    
-                    grupo.appendChild(input);
-                    cuerpoCard.appendChild(grupo);
-                });
-
-                // Inserta el cuerpo a la tarjeta, y la tarjeta al contenedor principal.
-                divParticipante.appendChild(cuerpoCard);
-                contenedor.appendChild(divParticipante);
-            }
+            generarParticipantes();
         });
     }
+
+    // Genera el campo inicial al cargar la página
+    generarParticipantes();
 });

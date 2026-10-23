@@ -27,7 +27,6 @@ from .views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('registrarse/', views.registrarse, name='registrarse'),
     path('inscribirse/', views.inscribirse, name='inscribirse'),
     path('mis-inscripciones/', views.mis_inscripciones, name='mis_inscripciones'),
     # URLs de las Apps.
