@@ -61,7 +61,7 @@ class Horario (models.Model):
     )
     
     # Relación 1:N - Una actividad deportiva podrá tener varios horarios.
-    ActividadDeportiva = models.ForeignKey(
+    actividad_deportiva = models.ForeignKey(
         ActividadDeportiva,
         on_delete = models.CASCADE,
         related_name = "horarios",
