@@ -17,51 +17,47 @@
         </a>
       </div>
 
-      <!-- Tarjeta con la información completa de la actividad -->
-      <div class="card shadow-sm border-0">
-        <div class="card-header bg-primary text-white text-center py-3">
-          <h3 class="mb-0 fw-bold">{{ actividad.nombre }}</h3>
-        </div>
+      <!-- Contenedor adaptado con Fieldset y filas Bootstrap -->
+      <div class="row justify-content-center">
+        <fieldset class="col-12 row g-3 p-0 m-0 w-100">
+          <legend>{{ actividad.nombre }}</legend>
 
-        <div class="card-body p-4">
           <!-- Descripción -->
-          <div class="mb-4">
-            <h5 class="fw-bold text-secondary">Descripción</h5>
-            <p class="card-text fs-5 text-dark">{{ actividad.descripcion }}</p>
+          <div class="col-12 mb-3">
+            <h5 class="fw-bold text-warning">Descripción</h5>
+            <p class="fs-5 text-light">{{ actividad.descripcion }}</p>
           </div>
 
-          <hr />
+          <div class="col-12"><hr class="border-secondary" /></div>
 
           <!-- Detalles generales -->
-          <div class="row my-4">
-            <div class="col-md-6 mb-3">
-              <h6 class="fw-bold text-secondary">
-                📍 Lugar de realización:
-              </h6>
-              <p class="fs-6 mb-0 text-dark">{{ actividad.lugar }}</p>
-            </div>
-            <div class="col-md-6 mb-3">
-              <h6 class="fw-bold text-secondary">
-                👥 Cupo máximo de participantes:
-              </h6>
-              <span class="badge bg-success fs-6"
-                >{{ actividad.cupo }} personas</span
-              >
-            </div>
+          <div class="col-md-6 mb-3">
+            <h6 class="fw-bold text-warning">
+               Lugar de realización:
+            </h6>
+            <p class="fs-6 mb-0 text-light">{{ actividad.lugar }}</p>
+          </div>
+          <div class="col-md-6 mb-3">
+            <h6 class="fw-bold text-warning">
+               Cupo máximo de participantes:
+            </h6>
+            <span class="badge bg-success fs-6"
+              >{{ actividad.cupo }} personas</span
+            >
           </div>
 
-          <hr />
+          <div class="col-12"><hr class="border-secondary" /></div>
 
           <!-- Listado de Horarios Asociados (Relación con modelo Horario) -->
-          <div class="mt-4">
-            <h5 class="fw-bold text-secondary mb-3">
-              📌 Horarios disponibles
+          <div class="col-12 mt-2">
+            <h5 class="fw-bold text-warning mb-3">
+               Horarios disponibles
             </h5>
             {% if actividad.horarios.all %}
-            <ul class="list-group">
+            <ul class="list-group bg-transparent">
               {% for horario in actividad.horarios.all %}
               <li
-                class="list-group-item d-flex justify-content-between align-items-center"
+                class="list-group-item bg-dark text-light border-secondary d-flex justify-content-between align-items-center"
               >
                 <span
                   ><strong>Día:</strong> {{ horario.get_dia_display }}</span
@@ -75,18 +71,19 @@
               {% endfor %}
             </ul>
             {% else %}
-            <p class="text-muted fst-italic mb-0">
+            <p class="text-light opacity-75 fst-italic mb-0">
               No hay horarios asignados para esta actividad actualmente.
             </p>
             {% endif %}
           </div>
-        </div>
 
-        <div class="card-footer bg-light text-end p-3">
-          <a href="{% url 'inscribirse' %}" class="btn btn-success fw-bold px-4">
-            Inscribirme a esta actividad
-          </a>
-        </div>
+          <!-- Botón de acción final -->
+          <div class="col-12 text-end mt-4">
+            <a href="{% url 'inscribirse' %}" class="btn btn-success fw-bold px-4">
+              Inscribirme a esta actividad
+            </a>
+          </div>
+        </fieldset>
       </div>
 
     </div>
