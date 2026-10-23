@@ -12,56 +12,53 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-10">
-      <div class="card shadow-sm border-0">
-        <div class="card-header bg-primary text-white text-center py-3">
-          <h4 class="mb-0 fw-bold">Listado de Disciplinas</h4>
-        </div>
-        <div class="card-body p-4">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered align-middle">
-              <thead class="table-dark">
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Lugar</th>
-                  <th>Cupo Máximo</th>
-                  <th class="text-center">Acción</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for actividad in actividades %}
-                <tr>
-                  <td class="fw-bold">{{ actividad.nombre }}</td>
-                  <td>{{ actividad.descripcion }}</td>
-                  <td>{{ actividad.lugar }}</td>
-                  <td>
-                    <span class="badge bg-info text-dark">
-                      {{ actividad.cupo }} personas
-                    </span>
-                  </td>
-                  <td class="text-center">
-                    <a
-                      href="{% url 'detalle_actividad' actividad.id %}"
-                      class="btn btn-sm btn-primary"
-                    >
-                      Ver Detalle
-                    </a>
-                  </td>
-                </tr>
-                {% empty %}
-                <tr>
-                  <td colspan="5" class="text-center text-muted py-4">
-                    No hay actividades deportivas registradas actualmente.
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+    <fieldset class="col-12 col-md-10 row g-3">
+      <legend>Listado de Disciplinas</legend>
+      
+      <div class="w-100 p-0 m-0">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Lugar</th>
+                <th>Cupo Máximo</th>
+                <th class="text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for actividad in actividades %}
+              <tr>
+                <td class="fw-bold">{{ actividad.nombre }}</td>
+                <td>{{ actividad.descripcion }}</td>
+                <td>{{ actividad.lugar }}</td>
+                <td>
+                  <span class="badge bg-info text-dark">
+                    {{ actividad.cupo }} personas
+                  </span>
+                </td>
+                <td class="text-center">
+                  <a
+                    href="{% url 'detalle_actividad' actividad.id %}"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Ver Detalle
+                  </a>
+                </td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="5" class="text-center text-muted py-4">
+                  No hay actividades deportivas registradas actualmente.
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
+    </fieldset>
   </div>
 </section>
 {% endblock %}
