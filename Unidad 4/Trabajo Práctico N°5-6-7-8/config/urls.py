@@ -29,6 +29,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('inscribirse/', views.inscribirse, name='inscribirse'),
     path('mis-inscripciones/', views.mis_inscripciones, name='mis_inscripciones'),
+    path('inscripcion/cancelar/<int:pk>/', views.cancelar_inscripcion, name='cancelar_inscripcion'),
     # URLs de las Apps.
     path('', include('apps.reservas.urls')),
 ]
